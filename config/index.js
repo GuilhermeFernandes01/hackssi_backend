@@ -1,4 +1,7 @@
-require('dotenv').config();
+if (process.env.ENVIRONMENT !== 'prd') {
+  // eslint-disable-next-line global-require
+  require('dotenv').config();
+}
 
 module.exports = {
   app: {
