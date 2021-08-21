@@ -6,7 +6,7 @@ const routes = require('./v1/routes');
 const plugins = require('./plugins');
 
 module.exports = (async () => {
-  const server = Hapi.server({ port: config.app.port, router: { isCaseSensitive: false } });
+  const server = Hapi.server({ address: config.app.address, port: config.app.port, router: { isCaseSensitive: false } });
 
   server.validator(joi);
   server.route(routes);

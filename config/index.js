@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = {
   app: {
     port: process.env.PORT,
-    httpsPort: process.env.HTTPS_PORT,
+    address: process.env.APP_URL,
   },
   mongo: {
     host: process.env.MONGO_URI,

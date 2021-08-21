@@ -14,7 +14,6 @@ Back-end do eTech
 Variáveis locais utilizadas para rodar e debugar a aplicação
 ```
 PORT=3001
-HTTPS_PORT=3002
 SWAGGER=true
 MONGO_URI=$MONGO_URI
 MONGO_DB_DATABASE=$MONGO_DATABASE
