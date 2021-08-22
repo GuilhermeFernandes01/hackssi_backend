@@ -46,7 +46,7 @@ const wrapper = ({
   };
 
   const getUserCourses = async userId => {
-    const userCourses = await repository.usersCoursesCollection.findOne({ userId });
+    const userCourses = await repository.usersCoursesCollection.findWithPagination({ userId });
 
     if (!userCourses) {
       throw new CustomError({

@@ -43,8 +43,8 @@ const wrapper = ({
       userId,
       headers,
       onSuccess: data => {
-        const { statusCode, ...response } = successHandler(data);
-        return reply.response(response).code(statusCode);
+        const response = successHandler(data);
+        return reply.response(response.courses).code(response.statusCode);
       },
       onError: error => {
         const errorObject = errorHandler(error);

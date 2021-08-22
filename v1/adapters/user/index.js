@@ -38,9 +38,9 @@ const wrapper = ({
     onError,
   }) => {
     try {
-      const response = await userUseCases.getUserCourses(userId);
+      const courses = await userUseCases.getUserCourses(userId);
 
-      return onSuccess(response);
+      return onSuccess({ courses });
     } catch (error) {
       return onError(error);
     }

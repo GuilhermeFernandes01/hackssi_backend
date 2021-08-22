@@ -19,6 +19,13 @@ const enums = {
     SCHEMA: 'jwt',
     ALGORITHM: 'HS256',
   },
+  FORMATION: {
+    STATUS: {
+      NOT_STARTED: 'not_started',
+      IN_PROGRESS: 'in_progress',
+      COMPLETED: 'completed',
+    },
+  },
 };
 
 module.exports = Object.freeze(enums);
