@@ -5,7 +5,6 @@ const {
   getUserCourses,
   getCourses,
   getFormations,
-  addUserPoints,
   getRanking,
 } = require('./routes');
 
@@ -16,6 +15,5 @@ module.exports = [
   getUserCourses,
   getCourses,
   getFormations,
-  addUserPoints,
   getRanking,
 ];

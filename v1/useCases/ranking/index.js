@@ -3,10 +3,6 @@ const convertToNumber = ({ skipValue, limitValue }) => ({ skip: Number(skipValue
 const wrapper = ({
   repository,
 }) => {
-  const addUserPoints = async () => {
-    // to do
-  };
-
   const getRanking = (skipValue, limitValue) => {
     const { skip, limit } = convertToNumber({ skipValue, limitValue });
 
@@ -14,7 +10,6 @@ const wrapper = ({
   };
 
   return {
-    addUserPoints,
     getRanking,
   };
 };

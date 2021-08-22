@@ -20,7 +20,6 @@ module.exports = dependencies => ({
     getFormations: trailsWrapper(dependencies).getFormations,
   },
   rankingUseCases: {
-    addUserPoints: rankingWrapper(dependencies).addUserPoints,
     getRanking: rankingWrapper(dependencies).getRanking,
   },
 });

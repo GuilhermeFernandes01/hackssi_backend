@@ -112,24 +112,6 @@ const getFormations = {
   },
 };
 
-const addUserPoints = {
-  path: '/v1/ranking/user',
-  method: 'PUT',
-  config: {
-    description: 'Atualiza a pontuação do usuário no ranking',
-    notes: ' ',
-    tags: ['api'],
-    handler: controller.addUserPoints,
-    validate: {
-      options: {
-        allowUnknown: true,
-      },
-      payload: rankingSchema.addUserPoints.payload,
-      headers: rankingSchema.addUserPoints.headers,
-    },
-  },
-};
-
 const getRanking = {
   path: '/v1/ranking',
   method: 'GET',
@@ -156,6 +138,5 @@ module.exports = {
   getUserCourses,
   getCourses,
   getFormations,
-  addUserPoints,
   getRanking,
 };

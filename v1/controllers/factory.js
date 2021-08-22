@@ -11,6 +11,5 @@ module.exports = (adapters, commons, config) => ({
   getUserCourses: userController(adapters, commons, config).getUserCourses,
   getCourses: coursesController(adapters, commons, config).getCourses,
   getFormations: trailsController(adapters, commons, config).getFormations,
-  addUserPoints: rankingController(adapters, commons, config).addUserPoints,
   getRanking: rankingController(adapters, commons, config).getRanking,
 });
