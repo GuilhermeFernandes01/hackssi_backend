@@ -4,11 +4,9 @@ const validPeriods = ['morning', 'afternoon', 'night'];
 
 module.exports = {
   getUser: {
-    params: Joi.object({
-      id: Joi.string().guid({ version: 'uuidv4' }),
-    }),
     headers: Joi.object({
       'x-consumer-system': Joi.string().optional(),
+      authorization: Joi.string().required(),
     }),
   },
   createUser: {

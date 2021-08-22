@@ -2,7 +2,7 @@ const controller = require('../controllers');
 const { userSchema, coursesSchema } = require('../schemas');
 
 const getUser = {
-  path: '/v1/users/{id}',
+  path: '/v1/users',
   method: 'GET',
   config: {
     description: 'Busca um usuário',
@@ -13,7 +13,6 @@ const getUser = {
       options: {
         allowUnknown: true,
       },
-      params: userSchema.getUser.params,
       headers: userSchema.getUser.headers,
     },
   },

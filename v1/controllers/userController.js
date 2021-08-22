@@ -6,9 +6,9 @@ const wrapper = ({
   },
 }) => {
   const getUser = async (request, reply) => {
-    const { params, headers } = request;
+    const { userId, headers } = request;
     return adapters.getUser({
-      params,
+      userId,
       headers,
       onSuccess: data => {
         const { statusCode, ...response } = successHandler(data);

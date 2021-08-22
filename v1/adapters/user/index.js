@@ -3,14 +3,12 @@ const wrapper = ({
   useCases: { userUseCases },
 }) => {
   const getUser = async ({
-    params,
+    userId,
     onSuccess,
     onError,
   }) => {
     try {
-      const { id } = params;
-
-      const user = await userUseCases.getUserById(id);
+      const user = await userUseCases.getUserById(userId);
 
       return onSuccess(user);
     } catch (error) {
