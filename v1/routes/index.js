@@ -3,6 +3,7 @@ const {
   createUser,
   authenticateUser,
   getUserCourses,
+  getCourses,
 } = require('./routes');
 
 module.exports = [
@@ -10,4 +11,5 @@ module.exports = [
   createUser,
   authenticateUser,
   getUserCourses,
+  getCourses,
 ];

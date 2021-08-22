@@ -41,4 +41,10 @@ module.exports = {
       'x-consumer-system': Joi.string().optional(),
     }),
   },
+  getUserCourses: {
+    headers: Joi.object({
+      'x-consumer-system': Joi.string().optional(),
+      authorization: Joi.string().required(),
+    }),
+  },
 };

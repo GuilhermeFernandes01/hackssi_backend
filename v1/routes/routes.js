@@ -69,6 +69,23 @@ const getUserCourses = {
       options: {
         allowUnknown: true,
       },
+      headers: userSchema.getUserCourses.headers,
+    },
+  },
+};
+
+const getCourses = {
+  path: '/v1/courses',
+  method: 'GET',
+  config: {
+    description: 'Retorna os cursos',
+    notes: ' ',
+    tags: ['api'],
+    handler: controller.getCourses,
+    validate: {
+      options: {
+        allowUnknown: true,
+      },
       headers: coursesSchema.getCourses.headers,
     },
   },
@@ -79,4 +96,5 @@ module.exports = {
   createUser,
   authenticateUser,
   getUserCourses,
+  getCourses,
 };

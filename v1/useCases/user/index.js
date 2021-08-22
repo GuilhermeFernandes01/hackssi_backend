@@ -9,7 +9,7 @@ const wrapper = ({
   const listUsers = (skipValue, limitValue) => {
     const { skip, limit } = convertToNumber({ skipValue, limitValue });
 
-    return repository.usersCollection.findWithPagination(skip, limit);
+    return repository.usersCollection.find(skip, limit);
   };
 
   const getUserById = async id => {
@@ -46,7 +46,7 @@ const wrapper = ({
   };
 
   const getUserCourses = async userId => {
-    const userCourses = await repository.usersCoursesCollection.findWithPagination({ userId });
+    const userCourses = await repository.usersCoursesCollection.find({ userId });
 
     if (!userCourses) {
       throw new CustomError({

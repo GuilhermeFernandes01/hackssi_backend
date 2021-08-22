@@ -6,7 +6,7 @@ module.exports = ({ db, collectionName, configConnection }) => ({
     const { ops: [data] } = await collection.insertOne({ _id: UUID('v4'), ...item });
     return data;
   },
-  findWithPagination: async (filter, options = {}) => {
+  find: async (filter, options = {}) => {
     const collection = await db.collection(collectionName, configConnection);
     const data = await collection.find(filter, options).toArray();
     return data;

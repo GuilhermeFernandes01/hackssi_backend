@@ -1,5 +1,6 @@
-const userWrapper = require('./user/mongoDb');
+const userWrapper = require('./user');
 const { authenticateWrapper } = require('./auth');
+const coursesWrapper = require('./courses');
 
 module.exports = dependencies => ({
   userUseCases: {
@@ -10,5 +11,8 @@ module.exports = dependencies => ({
   },
   authenticationUseCases: {
     authenticateUser: authenticateWrapper(dependencies).authenticateUser,
+  },
+  coursesUseCases: {
+    getCourses: coursesWrapper(dependencies).getCourses,
   },
 });
