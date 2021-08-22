@@ -16,6 +16,7 @@ module.exports = {
       tokens: process.env.TOKENS_COLLECTION,
       usersCourses: process.env.USERS_COURSES_COLLECTION,
       courses: process.env.COURSES_COLLECTION,
+      formations: process.env.FORMATIONS_COLLECTION,
     },
   },
   plugins: {

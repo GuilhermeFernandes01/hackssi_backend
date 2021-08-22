@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 module.exports = {
-  getCourses: {
+  getFormations: {
     headers: Joi.object({
       'x-consumer-system': Joi.string().optional(),
     }),

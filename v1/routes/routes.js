@@ -1,5 +1,5 @@
 const controller = require('../controllers');
-const { userSchema, coursesSchema } = require('../schemas');
+const { userSchema, coursesSchema, formationsSchema } = require('../schemas');
 
 const getUser = {
   path: '/v1/users',
@@ -78,6 +78,7 @@ const getCourses = {
   path: '/v1/courses',
   method: 'GET',
   config: {
+    auth: false,
     description: 'Retorna os cursos',
     notes: ' ',
     tags: ['api'],
@@ -91,10 +92,29 @@ const getCourses = {
   },
 };
 
+const getFormations = {
+  path: '/v1/formations',
+  method: 'GET',
+  config: {
+    auth: false,
+    description: 'Retorna as trilhas',
+    notes: ' ',
+    tags: ['api'],
+    handler: controller.getFormations,
+    validate: {
+      options: {
+        allowUnknown: true,
+      },
+      headers: formationsSchema.getFormations.headers,
+    },
+  },
+};
+
 module.exports = {
   getUser,
   createUser,
   authenticateUser,
   getUserCourses,
   getCourses,
+  getFormations,
 };

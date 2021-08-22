@@ -38,9 +38,19 @@ const coursesCollection = factory({
   },
 });
 
+const trailsCollection = factory({
+  db: mongo,
+  collectionName: config.mongo.collections.formations,
+  configConnection: {
+    host: config.mongo.host,
+    database: config.mongo.database,
+  },
+});
+
 module.exports = {
   usersCollection,
   tokensCollection,
   usersCoursesCollection,
   coursesCollection,
+  trailsCollection,
 };

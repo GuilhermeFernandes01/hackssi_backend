@@ -1,6 +1,7 @@
 const authenticationController = require('./authenticationController');
 const coursesController = require('./coursesController');
 const userController = require('./userController');
+const trailsController = require('./trailsController');
 
 module.exports = (adapters, commons, config) => ({
   getUser: userController(adapters, commons, config).getUser,
@@ -8,4 +9,5 @@ module.exports = (adapters, commons, config) => ({
   authenticateUser: authenticationController(adapters, commons, config).authenticateUser,
   getUserCourses: userController(adapters, commons, config).getUserCourses,
   getCourses: coursesController(adapters, commons, config).getCourses,
+  getFormations: trailsController(adapters, commons, config).getFormations,
 });

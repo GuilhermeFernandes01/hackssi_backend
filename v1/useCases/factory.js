@@ -1,6 +1,7 @@
 const userWrapper = require('./user');
 const { authenticateWrapper } = require('./auth');
 const coursesWrapper = require('./courses');
+const trailsWrapper = require('./formations');
 
 module.exports = dependencies => ({
   userUseCases: {
@@ -14,5 +15,8 @@ module.exports = dependencies => ({
   },
   coursesUseCases: {
     getCourses: coursesWrapper(dependencies).getCourses,
+  },
+  trailsUseCases: {
+    getFormations: trailsWrapper(dependencies).getFormations,
   },
 });
