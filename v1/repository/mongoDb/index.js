@@ -1,5 +1,5 @@
 const factory = require('./factory');
-const mongo = require('../../../commons/lib/mongodb');
+const mongo = require('../../../commons/lib/mongoDb');
 const config = require('../../../config');
 
 const usersCollection = factory({
