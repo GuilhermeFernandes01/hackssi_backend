@@ -143,6 +143,7 @@ const getRanking = {
       options: {
         allowUnknown: true,
       },
+      query: rankingSchema.getRanking.query,
       headers: rankingSchema.getRanking.headers,
     },
   },
