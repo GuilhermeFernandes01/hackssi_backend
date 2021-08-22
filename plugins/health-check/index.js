@@ -4,6 +4,7 @@ const { version } = require('../../package.json');
 module.exports =  {
   plugin: hapiAlive,
   options: {
+    auth: false,
     path: '/healthcheck',
     tags: ['health', 'monitor'],
     responses: {
