@@ -45,8 +45,12 @@ const wrapper = ({
     await repository.usersCollection.insertOne(user);
   };
 
-  const getUserCourses = async userId => {
-    const userCourses = await repository.usersCoursesCollection.find({ userId });
+  const getUserCourses = async (userId, query) => {
+    const filters = query.status
+      ? { userId, $or: Array.isArray(query.status) ? query.status.map(item => ({ status: item })) : [{ status: query.status }] }
+      : { userId };
+
+    const userCourses = await repository.usersCoursesCollection.find(filters);
 
     if (!userCourses) {
       throw new CustomError({

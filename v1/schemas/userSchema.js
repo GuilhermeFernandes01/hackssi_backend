@@ -1,5 +1,7 @@
 const Joi = require('joi');
 
+const { FORMATION: { STATUS: { COMPLETED, IN_PROGRESS, NOT_STARTED } } } = require('../../enums');
+
 const validPeriods = ['morning', 'afternoon', 'night'];
 
 module.exports = {
@@ -40,6 +42,9 @@ module.exports = {
     }),
   },
   getUserCourses: {
+    query: Joi.object({
+      status: Joi.array().items(Joi.string().valid(COMPLETED, IN_PROGRESS, NOT_STARTED)).allow(COMPLETED, IN_PROGRESS, NOT_STARTED),
+    }),
     headers: Joi.object({
       'x-consumer-system': Joi.string().optional(),
       authorization: Joi.string().required(),

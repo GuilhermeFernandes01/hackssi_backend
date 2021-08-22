@@ -38,9 +38,10 @@ const wrapper = ({
   };
 
   const getUserCourses = async (request, reply) => {
-    const { userId, headers } = request;
+    const { userId, query, headers } = request;
     return adapters.getUserCourses({
       userId,
+      query,
       headers,
       onSuccess: data => {
         const response = successHandler(data);

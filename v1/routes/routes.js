@@ -68,6 +68,7 @@ const getUserCourses = {
       options: {
         allowUnknown: true,
       },
+      query: userSchema.getUserCourses.query,
       headers: userSchema.getUserCourses.headers,
     },
   },
