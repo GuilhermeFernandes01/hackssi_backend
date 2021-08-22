@@ -1,5 +1,7 @@
 const controller = require('../controllers');
-const { userSchema, coursesSchema, formationsSchema } = require('../schemas');
+const {
+  userSchema, coursesSchema, formationsSchema, rankingSchema,
+} = require('../schemas');
 
 const getUser = {
   path: '/v1/users',
@@ -110,6 +112,42 @@ const getFormations = {
   },
 };
 
+const addUserPoints = {
+  path: '/v1/ranking/user',
+  method: 'PUT',
+  config: {
+    description: 'Atualiza a pontuação do usuário no ranking',
+    notes: ' ',
+    tags: ['api'],
+    handler: controller.addUserPoints,
+    validate: {
+      options: {
+        allowUnknown: true,
+      },
+      payload: rankingSchema.addUserPoints.payload,
+      headers: rankingSchema.addUserPoints.headers,
+    },
+  },
+};
+
+const getRanking = {
+  path: '/v1/ranking',
+  method: 'GET',
+  config: {
+    auth: false,
+    description: 'Atualiza a pontuação do usuário no ranking',
+    notes: ' ',
+    tags: ['api'],
+    handler: controller.getRanking,
+    validate: {
+      options: {
+        allowUnknown: true,
+      },
+      headers: rankingSchema.getRanking.headers,
+    },
+  },
+};
+
 module.exports = {
   getUser,
   createUser,
@@ -117,4 +155,6 @@ module.exports = {
   getUserCourses,
   getCourses,
   getFormations,
+  addUserPoints,
+  getRanking,
 };

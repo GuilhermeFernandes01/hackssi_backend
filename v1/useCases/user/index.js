@@ -1,17 +1,9 @@
-const convertToNumber = ({ skipValue, limitValue }) => ({ skip: Number(skipValue) || 0, limit: Number(limitValue) || 10 });
-
 const wrapper = ({
   repository,
   CustomError,
   hash,
   enums: { USER, USER_COURSES },
 }) => {
-  const listUsers = (skipValue, limitValue) => {
-    const { skip, limit } = convertToNumber({ skipValue, limitValue });
-
-    return repository.usersCollection.find(skip, limit);
-  };
-
   const getUserById = async id => {
     const user = await repository.usersCollection.findOne({ _id: id }, { projection: { password: 0 } });
 
@@ -63,7 +55,6 @@ const wrapper = ({
   };
 
   return {
-    listUsers,
     getUserById,
     createUser,
     getUserCourses,

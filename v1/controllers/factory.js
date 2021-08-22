@@ -2,6 +2,7 @@ const authenticationController = require('./authenticationController');
 const coursesController = require('./coursesController');
 const userController = require('./userController');
 const trailsController = require('./trailsController');
+const rankingController = require('./rankingController');
 
 module.exports = (adapters, commons, config) => ({
   getUser: userController(adapters, commons, config).getUser,
@@ -10,4 +11,6 @@ module.exports = (adapters, commons, config) => ({
   getUserCourses: userController(adapters, commons, config).getUserCourses,
   getCourses: coursesController(adapters, commons, config).getCourses,
   getFormations: trailsController(adapters, commons, config).getFormations,
+  addUserPoints: rankingController(adapters, commons, config).addUserPoints,
+  getRanking: rankingController(adapters, commons, config).getRanking,
 });

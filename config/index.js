@@ -17,6 +17,7 @@ module.exports = {
       usersCourses: process.env.USERS_COURSES_COLLECTION,
       courses: process.env.COURSES_COLLECTION,
       formations: process.env.FORMATIONS_COLLECTION,
+      ranking: process.env.RANKING_COLLECTION,
     },
   },
   plugins: {

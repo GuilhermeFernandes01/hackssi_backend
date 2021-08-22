@@ -47,10 +47,20 @@ const trailsCollection = factory({
   },
 });
 
+const rankingCollection = factory({
+  db: mongo,
+  collectionName: config.mongo.collections.ranking,
+  configConnection: {
+    host: config.mongo.host,
+    database: config.mongo.database,
+  },
+});
+
 module.exports = {
   usersCollection,
   tokensCollection,
   usersCoursesCollection,
   coursesCollection,
   trailsCollection,
+  rankingCollection,
 };
