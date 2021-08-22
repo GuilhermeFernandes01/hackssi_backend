@@ -32,4 +32,13 @@ module.exports = {
       'x-consumer-system': Joi.string().optional(),
     }),
   },
+  authenticateUser: {
+    payload: Joi.object({
+      email: Joi.string().email({ tlds: { allow: false } }),
+      password: Joi.string().required(),
+    }),
+    headers: Joi.object({
+      'x-consumer-system': Joi.string().optional(),
+    }),
+  },
 };

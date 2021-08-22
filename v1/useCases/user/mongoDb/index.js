@@ -4,7 +4,7 @@ const wrapper = ({
   repository,
   CustomError,
   hash,
-  enums: { USER },
+  enums: { USER, USER_COURSES },
 }) => {
   const listUsers = (skipValue, limitValue) => {
     const { skip, limit } = convertToNumber({ skipValue, limitValue });
@@ -45,10 +45,24 @@ const wrapper = ({
     await repository.usersCollection.insertOne(user);
   };
 
+  const getUserCourses = async userId => {
+    const userCourses = await repository.usersCoursesCollection.findOne({ userId });
+
+    if (!userCourses) {
+      throw new CustomError({
+        statusCode: 404,
+        message: USER_COURSES.ERROR.NOT_FOUND,
+      });
+    }
+
+    return userCourses;
+  };
+
   return {
     listUsers,
     getUserById,
     createUser,
+    getUserCourses,
   };
 };
 

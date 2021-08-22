@@ -32,9 +32,25 @@ const wrapper = ({
     }
   };
 
+  const getUserCourses = async ({
+    userId,
+    onSuccess,
+    onError,
+  }) => {
+    try {
+      const response = await userUseCases.getUserCourses(userId);
+
+      return onSuccess(response);
+    } catch (error) {
+      return onError(error);
+    }
+  };
+
+
   return {
     getUser,
     createUser,
+    getUserCourses,
   };
 };
 

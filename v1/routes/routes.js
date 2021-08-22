@@ -1,5 +1,5 @@
 const controller = require('../controllers');
-const { userSchema } = require('../schemas');
+const { userSchema, coursesSchema } = require('../schemas');
 
 const getUser = {
   path: '/v1/users/{id}',
@@ -23,6 +23,7 @@ const createUser = {
   path: '/v1/users',
   method: 'POST',
   config: {
+    auth: false,
     description: 'Cria um usuário',
     notes: ' ',
     tags: ['api'],
@@ -37,7 +38,45 @@ const createUser = {
   },
 };
 
+const authenticateUser = {
+  path: '/v1/auth/users',
+  method: 'POST',
+  config: {
+    auth: false,
+    description: 'Autentica um usuário',
+    notes: ' ',
+    tags: ['api'],
+    handler: controller.authenticateUser,
+    validate: {
+      options: {
+        allowUnknown: true,
+      },
+      payload: userSchema.authenticateUser.payload,
+      headers: userSchema.authenticateUser.headers,
+    },
+  },
+};
+
+const getUserCourses = {
+  path: '/v1/users/courses',
+  method: 'GET',
+  config: {
+    description: 'Retorna os cursos de um usuário',
+    notes: ' ',
+    tags: ['api'],
+    handler: controller.getUserCourses,
+    validate: {
+      options: {
+        allowUnknown: true,
+      },
+      headers: coursesSchema.getCourses.headers,
+    },
+  },
+};
+
 module.exports = {
   getUser,
   createUser,
+  authenticateUser,
+  getUserCourses,
 };

@@ -37,9 +37,26 @@ const wrapper = ({
     });
   };
 
+  const getUserCourses = async (request, reply) => {
+    const { userId, headers } = request;
+    return adapters.getUserCourses({
+      userId,
+      headers,
+      onSuccess: data => {
+        const { statusCode, ...response } = successHandler(data);
+        return reply.response(response).code(statusCode);
+      },
+      onError: error => {
+        const errorObject = errorHandler(error);
+        return reply.response(errorObject).code(errorObject.statusCode);
+      },
+    });
+  };
+
   return {
     getUser,
     createUser,
+    getUserCourses,
   };
 };
 

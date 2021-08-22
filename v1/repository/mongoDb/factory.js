@@ -16,4 +16,9 @@ module.exports = ({ db, collectionName, configConnection }) => ({
     const data = await collection.findOne(filter, options);
     return data;
   },
+  deleteOne: async filter => {
+    const collection = await db.collection(collectionName, configConnection);
+    const data = await collection.deleteOne(filter);
+    return data;
+  },
 });

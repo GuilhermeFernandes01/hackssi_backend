@@ -41,7 +41,7 @@ module.exports = {
     }],
     'no-nested-ternary': 'off',
     'no-underscore-dangle': ['error', {
-      allow: ['_super', '_lookupFactory'],
+      allow: ['_super', '_lookupFactory', '_id'],
     }],
     'object-shorthand': ['error', 'methods'],
     'arrow-parens': ['error', 'as-needed'],
